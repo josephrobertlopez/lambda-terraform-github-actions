@@ -11,7 +11,7 @@ resource "aws_lambda_function" "hello" {
   function_name = var.project_name
   role          = aws_iam_role.lambda_role.arn
   handler       = "hello.handler"
-  runtime       = "nodejs12.x"
+  runtime       = "nodejs18.x"
   timeout       = 10
   # publish       = true
 }
