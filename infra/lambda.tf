@@ -1,6 +1,6 @@
 data "archive_file" "zip" {
   type        = "zip"
-  source_file = "../lambda/hello.js"
+  source_file = "../lambda/hello.py"
   output_path = "../lambda/hello.zip"
 }
 
@@ -10,8 +10,8 @@ resource "aws_lambda_function" "hello" {
 
   function_name = var.project_name
   role          = aws_iam_role.lambda_role.arn
-  handler       = "hello.handler"
-  runtime       = "nodejs18.x"
+  handler       = "hello.lambda_handler"
+  runtime       = "python3.10"
   timeout       = 10
   # publish       = true
 }

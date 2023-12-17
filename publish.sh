@@ -5,7 +5,7 @@
 #
 
 # AWS variables
-AWS_REGION=eu-west-3
+AWS_REGION=us-east-1
 # project name
 PROJECT_NAME=lambda-terraform-github-actions
 
@@ -33,10 +33,10 @@ aws lambda delete-alias \
     --region $AWS_REGION \
     2>/dev/null
 
-echo zip hello.js
+echo zip hello.py
 cd lambda/
 rm --force hello.zip
-zip hello.zip hello.js
+zip hello.zip hello.py
 
 echo aws lambda update-function-code $PROJECT_NAME
 aws lambda update-function-code \
